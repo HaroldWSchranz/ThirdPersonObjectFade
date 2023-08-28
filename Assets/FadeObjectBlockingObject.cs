@@ -37,11 +37,11 @@ public class FadeObjectBlockingObject : MonoBehaviour
     {
         while (true)
         {
-            int hits = Physics.RaycastNonAlloc()
+            int hits = Physics.RaycastNonAlloc(
                 Camera.transform.position,
                 (Target.transform.position + TargetPositionOffset - Camera.transform.position).normalized,
                 Hits,
-                Vector3.Distance(Camera.transform.position, Target.transform.position + TargetPositionOffset);
+                Vector3.Distance(Camera.transform.position, Target.transform.position + TargetPositionOffset),
                 LayerMask
             );
 
@@ -120,7 +120,7 @@ public class FadeObjectBlockingObject : MonoBehaviour
             yield return null;
         }
         // https://www.youtube.com/watch?v=vmLIy62Gsnk
-        if (RunningCoroutines.ContainsKey(FadingObject)) ///20230815020000 go bback YouTube to 14 minutes
+       // if (RunningCoroutines.ContainsKey(FadingObject)) ///20230815020000 go bback YouTube to 14 minutes
     }
 
     private void ClearHits()
